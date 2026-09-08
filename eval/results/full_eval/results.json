@@ -1,0 +1,2118 @@
+{
+  "aggregate": {
+    "answer_relevance": 0.19178934491434493,
+    "claim_level_faithfulness": 0.75,
+    "context_relevance": 0.8875000000000001,
+    "drm_depth": 10,
+    "drm_fraction": 0.6958333333333333,
+    "drm_fraction_mean": 0.6958333333333333,
+    "failure_tags": {
+      "counts": {
+        "citation_failure": 1,
+        "context_integration_failure": 1,
+        "efficiency_failure": 1,
+        "generation_failure": 1,
+        "hallucination": 5,
+        "interpretability_failure": 1,
+        "retrieval_failure": 0,
+        "unsupported_premise": 1
+      },
+      "tagged_queries": 6,
+      "tagged_queries_fraction": 0.25
+    },
+    "faithfulness": 0.75,
+    "k_values": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "map": 0.7185185185185184,
+    "mrr": 0.7185185185185184,
+    "num_queries": 24,
+    "precision_at_k": {
+      "1": 0.5833333333333334,
+      "3": 0.40277777777777773,
+      "5": 0.3666666666666667,
+      "10": 0.30416666666666664
+    },
+    "recall_at_k": {
+      "1": 0.5833333333333334,
+      "3": 0.7916666666666666,
+      "5": 0.9166666666666666,
+      "10": 1.0
+    },
+    "top1_accuracy": 0.5833333333333334,
+    "top3_accuracy": 0.7916666666666666,
+    "unsupported_claim_fraction": 0.23076923076923078
+  },
+  "envelope": {
+    "drm_depth": 10,
+    "env": {
+      "config": {
+        "enable_claim_check": true,
+        "enable_failure_tags": true,
+        "enable_ragas_style": true,
+        "k_values": [
+          1,
+          3,
+          5,
+          10
+        ]
+      },
+      "corpus": [
+        {
+          "bytes": 1024,
+          "file": "nda_crestwood.txt",
+          "sha256": "df191b471c9bf60fb89684653f73c27aecc53e521deebc2507acdb8636e8a1e7"
+        },
+        {
+          "bytes": 995,
+          "file": "nda_helix_dynamics.txt",
+          "sha256": "801180e04a4eb3fb32f268a4b80cefe13a49ea637a5511663d7cd8a2d0b5f4cc"
+        },
+        {
+          "bytes": 993,
+          "file": "nda_orion_group.txt",
+          "sha256": "12d3ef89be37373b31de275c7978c8833a63b1051378668f9cae82d31acbdb5a"
+        },
+        {
+          "bytes": 1018,
+          "file": "nda_pinnacle.txt",
+          "sha256": "89c7ffdf94e0a24c1a209d760d4b828648e8db6b786a8398e2e27f70f463117b"
+        },
+        {
+          "bytes": 1006,
+          "file": "nda_stellar_systems.txt",
+          "sha256": "0deb49b8e0786de7af2558c3def78eb78886673375a56a628c7e824757e44cec"
+        },
+        {
+          "bytes": 998,
+          "file": "nda_zenith.txt",
+          "sha256": "4bd54b07510dfad9b525ea981577898f465df1baa502e2a1963f4afccb54e755"
+        }
+      ],
+      "corpus_chunks_provided": true,
+      "corpus_dir": "/home/sivamani/projects/legalrag/data/eval/raw",
+      "embedder_source": "injected-fake-encoder",
+      "embedding_model": "smoke-BAAI-bge-large-en-v1.5",
+      "level": "document",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+      "python": "3.14.4"
+    },
+    "generated_at": "2026-09-06T10:27:36.965147+00:00",
+    "k_values": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "notes": [
+      "Milestone 7 full evaluation harness (eval/run_eval.py).",
+      "Relevance is document-level: a retrieved chunk is relevant iff its source document equals the query's expected_document.",
+      "The Milestone 4 DRM evaluation files (eval/results/drm_results.json, eval/results/drm_report.md) are intentionally not modified by this harness."
+    ],
+    "num_queries": 24,
+    "queries": [
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-1"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-2"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-3"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-4"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-1"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-2"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-3"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-4"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-1"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-2"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-3"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-4"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-1"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-2"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-3"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-4"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-1"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-2"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-3"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-4"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-1"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-2"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-3"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-4"
+      }
+    ],
+    "scoring": {
+      "enable_claim_check": true,
+      "enable_failure_tags": true,
+      "enable_ragas_style": true,
+      "judge": null,
+      "note": "faithfulness/answer-relevance/context-relevance used the deterministic lexical heuristics (no LLM judge injected)"
+    },
+    "version": 1
+  },
+  "per_query": [
+    {
+      "adaptive_triggered": null,
+      "answer": "Each party will use the information only to evaluate the manufacturing joint venture. [citation:nda_stellar_systems-4]",
+      "cited_chunk_ids": [
+        "nda_stellar_systems-4"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Each party will use the information only to evaluate the manufacturing joint venture.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-1",
+              "nda_stellar_systems-4",
+              "nda_orion_group-1",
+              "nda_stellar_systems-1",
+              "nda_zenith-2",
+              "nda_pinnacle-2",
+              "nda_orion_group-3"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_stellar_systems",
+      "failure_tags": [],
+      "query": "Regarding the manufacturing joint venture, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "stellar-1",
+      "ragas": {
+        "answer_relevance": 0.2727272727272727,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.25,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.2,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.25
+      },
+      "retrieved_sources": [
+        "nda_crestwood",
+        "nda_orion_group",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_zenith",
+        "nda_pinnacle",
+        "nda_orion_group"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this manufacturing joint venture engagement, confidentiality remains in effect for three years after the Effective Date. [citation:nda_stellar_systems-7]",
+      "cited_chunk_ids": [
+        "nda_stellar_systems-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this manufacturing joint venture engagement, confidentiality remains in effect for three years after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_zenith-7",
+              "nda_crestwood-7",
+              "nda_stellar_systems-7",
+              "nda_pinnacle-7",
+              "nda_stellar_systems-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_stellar_systems",
+      "failure_tags": [],
+      "query": "For the manufacturing joint venture, what obligations do the parties have to protect confidential information?",
+      "query_id": "stellar-2",
+      "ragas": {
+        "answer_relevance": 0.375,
+        "context_relevance": 0.7,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.2,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.2,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.2
+      },
+      "retrieved_sources": [
+        "nda_zenith",
+        "nda_crestwood",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_crestwood",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this manufacturing joint venture engagement, confidentiality remains in effect for three years after the Effective Date. [citation:nda_stellar_systems-7]",
+      "cited_chunk_ids": [
+        "nda_stellar_systems-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this manufacturing joint venture engagement, confidentiality remains in effect for three years after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_stellar_systems-7",
+              "nda_stellar_systems-0",
+              "nda_orion_group-7",
+              "nda_zenith-5",
+              "nda_pinnacle-7",
+              "nda_stellar_systems-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_stellar_systems",
+      "failure_tags": [],
+      "query": "Under the agreement for the manufacturing joint venture, what happens to Confidential Information upon termination?",
+      "query_id": "stellar-3",
+      "ragas": {
+        "answer_relevance": 0.3333333333333333,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_stellar_systems",
+        "nda_stellar_systems",
+        "nda_orion_group",
+        "nda_orion_group",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information. [citation:nda_stellar_systems-1]",
+      "cited_chunk_ids": [
+        "nda_stellar_systems-1"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_pinnacle-6",
+              "nda_stellar_systems-1",
+              "nda_crestwood-1",
+              "nda_zenith-1",
+              "nda_helix_dynamics-6",
+              "nda_orion_group-1",
+              "nda_pinnacle-1",
+              "nda_pinnacle-4",
+              "nda_stellar_systems-2"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_stellar_systems",
+      "failure_tags": [],
+      "query": "The manufacturing joint venture agreement between Stellar Systems Inc. and Nova Labs: how should the parties treat trade secrets and confidential information?",
+      "query_id": "stellar-4",
+      "ragas": {
+        "answer_relevance": 0.06666666666666667,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.5,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.5
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Helix Dynamics Ltd.\" and \"Orbit Partners\" entered into to support a potential software licensing deal. [citation:nda_helix_dynamics-0]",
+      "cited_chunk_ids": [
+        "nda_helix_dynamics-0"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 2,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Helix Dynamics Ltd.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_orion_group-7",
+              "nda_pinnacle-6",
+              "nda_zenith-1",
+              "nda_helix_dynamics-0",
+              "nda_helix_dynamics-1",
+              "nda_crestwood-6",
+              "nda_stellar_systems-1",
+              "nda_helix_dynamics-6",
+              "nda_helix_dynamics-5",
+              "nda_helix_dynamics-7"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          },
+          {
+            "claim": "\" and \"Orbit Partners\" entered into to support a potential software licensing deal.",
+            "claim_id": "claim-2",
+            "evidence": [
+              "nda_zenith-1",
+              "nda_helix_dynamics-0",
+              "nda_helix_dynamics-1",
+              "nda_stellar_systems-1",
+              "nda_helix_dynamics-6",
+              "nda_helix_dynamics-5",
+              "nda_helix_dynamics-7"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 2,
+        "score": 1.0
+      },
+      "drm_fraction": 0.5,
+      "expected_document": "nda_helix_dynamics",
+      "failure_tags": [],
+      "query": "Regarding the software licensing deal, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "helix-1",
+      "ragas": {
+        "answer_relevance": 0.18181818181818182,
+        "context_relevance": 0.9,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.25,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.4,
+          "10": 0.5
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.25
+      },
+      "retrieved_sources": [
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this software licensing deal engagement, confidentiality remains in effect for one year after the Effective Date. [citation:nda_helix_dynamics-7]",
+      "cited_chunk_ids": [
+        "nda_helix_dynamics-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this software licensing deal engagement, confidentiality remains in effect for one year after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-7",
+              "nda_pinnacle-7",
+              "nda_helix_dynamics-1",
+              "nda_zenith-7",
+              "nda_helix_dynamics-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_helix_dynamics",
+      "failure_tags": [],
+      "query": "For the software licensing deal, what obligations do the parties have to protect confidential information?",
+      "query_id": "helix-2",
+      "ragas": {
+        "answer_relevance": 0.375,
+        "context_relevance": 0.8,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_helix_dynamics",
+        "nda_pinnacle",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_crestwood",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this software licensing deal engagement, confidentiality remains in effect for one year after the Effective Date. [citation:nda_helix_dynamics-7]",
+      "cited_chunk_ids": [
+        "nda_helix_dynamics-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this software licensing deal engagement, confidentiality remains in effect for one year after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-7",
+              "nda_stellar_systems-1",
+              "nda_helix_dynamics-1",
+              "nda_zenith-1",
+              "nda_zenith-7"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_helix_dynamics",
+      "failure_tags": [],
+      "query": "Under the agreement for the software licensing deal, what happens to Confidential Information upon termination?",
+      "query_id": "helix-3",
+      "ragas": {
+        "answer_relevance": 0.3333333333333333,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.6,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_zenith"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Each party will hold the other party's Confidential Information in confidence using at least reasonable care. [citation:nda_helix_dynamics-3]",
+      "cited_chunk_ids": [
+        "nda_helix_dynamics-3"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Each party will hold the other party's Confidential Information in confidence using at least reasonable care.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-3",
+              "nda_helix_dynamics-2",
+              "nda_crestwood-1",
+              "nda_pinnacle-4",
+              "nda_stellar_systems-6",
+              "nda_helix_dynamics-1",
+              "nda_zenith-6",
+              "nda_crestwood-6"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_helix_dynamics",
+      "failure_tags": [],
+      "query": "The software licensing deal agreement between Helix Dynamics Ltd. and Orbit Partners: how should the parties treat trade secrets and confidential information?",
+      "query_id": "helix-4",
+      "ragas": {
+        "answer_relevance": 0.13333333333333333,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_helix_dynamics"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information. [citation:nda_orion_group-1]",
+      "cited_chunk_ids": [
+        "nda_orion_group-1"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-1",
+              "nda_orion_group-1",
+              "nda_orion_group-4",
+              "nda_helix_dynamics-7",
+              "nda_orion_group-6",
+              "nda_stellar_systems-1",
+              "nda_helix_dynamics-6",
+              "nda_stellar_systems-6",
+              "nda_helix_dynamics-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_orion_group",
+      "failure_tags": [],
+      "query": "Regarding the hospitality acquisition, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "orion-1",
+      "ragas": {
+        "answer_relevance": 0.0,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.5,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.5
+      },
+      "retrieved_sources": [
+        "nda_helix_dynamics",
+        "nda_orion_group",
+        "nda_orion_group",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_helix_dynamics"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this hospitality acquisition engagement, confidentiality remains in effect for five years after the Effective Date. [citation:nda_orion_group-7]",
+      "cited_chunk_ids": [
+        "nda_orion_group-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this hospitality acquisition engagement, confidentiality remains in effect for five years after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_orion_group-7",
+              "nda_pinnacle-7",
+              "nda_crestwood-7",
+              "nda_orion_group-0",
+              "nda_orion_group-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_orion_group",
+      "failure_tags": [],
+      "query": "For the hospitality acquisition, what obligations do the parties have to protect confidential information?",
+      "query_id": "orion-2",
+      "ragas": {
+        "answer_relevance": 0.2857142857142857,
+        "context_relevance": 0.7,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.3333333333333333,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.3333333333333333
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_crestwood",
+        "nda_orion_group",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_zenith"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Each party will use the information only to evaluate the hospitality acquisition. [citation:nda_orion_group-4]",
+      "cited_chunk_ids": [
+        "nda_orion_group-4"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Each party will use the information only to evaluate the hospitality acquisition.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_orion_group-4",
+              "nda_pinnacle-4",
+              "nda_pinnacle-6",
+              "nda_orion_group-0",
+              "nda_helix_dynamics-6",
+              "nda_crestwood-6",
+              "nda_stellar_systems-6",
+              "nda_crestwood-4",
+              "nda_helix_dynamics-1"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_orion_group",
+      "failure_tags": [],
+      "query": "Under the agreement for the hospitality acquisition, what happens to Confidential Information upon termination?",
+      "query_id": "orion-3",
+      "ragas": {
+        "answer_relevance": 0.25,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_orion_group",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_crestwood",
+        "nda_helix_dynamics"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Orion Group LLC\" and \"Vertex Capital\" entered into to support a potential hospitality acquisition. [citation:nda_orion_group-0]",
+      "cited_chunk_ids": [
+        "nda_orion_group-0"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Orion Group LLC\" and \"Vertex Capital\" entered into to support a potential hospitality acquisition.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_orion_group-0",
+              "nda_orion_group-4",
+              "nda_zenith-6",
+              "nda_orion_group-1",
+              "nda_pinnacle-6",
+              "nda_crestwood-6",
+              "nda_stellar_systems-1",
+              "nda_helix_dynamics-6",
+              "nda_pinnacle-4",
+              "nda_zenith-3"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_orion_group",
+      "failure_tags": [],
+      "query": "The hospitality acquisition agreement between Orion Group LLC and Vertex Capital: how should the parties treat trade secrets and confidential information?",
+      "query_id": "orion-4",
+      "ragas": {
+        "answer_relevance": 0.21428571428571427,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.6,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_orion_group",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_crestwood",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_pinnacle",
+        "nda_zenith"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Pinnacle Corp.\" and \"Atlas Research\" entered into to support a potential biopharmaceutical co-development. [citation:nda_pinnacle-0]",
+      "cited_chunk_ids": [
+        "nda_pinnacle-0"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 2,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Pinnacle Corp.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_pinnacle-0",
+              "nda_helix_dynamics-1",
+              "nda_helix_dynamics-7",
+              "nda_stellar_systems-7",
+              "nda_zenith-1",
+              "nda_zenith-7",
+              "nda_zenith-6",
+              "nda_pinnacle-1",
+              "nda_pinnacle-6",
+              "nda_helix_dynamics-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          },
+          {
+            "claim": "\" and \"Atlas Research\" entered into to support a potential biopharmaceutical co-development.",
+            "claim_id": "claim-2",
+            "evidence": [
+              "nda_pinnacle-0",
+              "nda_zenith-7",
+              "nda_pinnacle-1",
+              "nda_pinnacle-6"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 2,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_pinnacle",
+      "failure_tags": [],
+      "query": "Regarding the biopharmaceutical co-development, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "pinnacle-1",
+      "ragas": {
+        "answer_relevance": 0.09090909090909091,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_helix_dynamics"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Each party will hold the other party's Confidential Information in confidence using at least reasonable care. [citation:nda_pinnacle-3]",
+      "cited_chunk_ids": [
+        "nda_pinnacle-3"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Each party will hold the other party's Confidential Information in confidence using at least reasonable care.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_orion_group-4",
+              "nda_pinnacle-3"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.9,
+      "expected_document": "nda_pinnacle",
+      "failure_tags": [],
+      "query": "For the biopharmaceutical co-development, what obligations do the parties have to protect confidential information?",
+      "query_id": "pinnacle-2",
+      "ragas": {
+        "answer_relevance": 0.25,
+        "context_relevance": 0.2,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.1,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.1
+      },
+      "retrieved_sources": [
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_pinnacle"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Each party will use the information only to evaluate the biopharmaceutical co-development. [citation:nda_pinnacle-4]",
+      "cited_chunk_ids": [
+        "nda_pinnacle-4"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Each party will use the information only to evaluate the biopharmaceutical co-development.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_pinnacle-4",
+              "nda_zenith-6",
+              "nda_stellar_systems-6",
+              "nda_pinnacle-0",
+              "nda_pinnacle-7",
+              "nda_stellar_systems-4",
+              "nda_helix_dynamics-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_pinnacle",
+      "failure_tags": [],
+      "query": "Under the agreement for the biopharmaceutical co-development, what happens to Confidential Information upon termination?",
+      "query_id": "pinnacle-3",
+      "ragas": {
+        "answer_relevance": 0.2222222222222222,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_pinnacle",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information. [citation:nda_pinnacle-1]",
+      "cited_chunk_ids": [
+        "nda_pinnacle-1"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "\"Confidential Information\" includes trade secrets, technical data, product plans, customers, markets, software, developments, and engineering information.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_pinnacle-1",
+              "nda_helix_dynamics-1",
+              "nda_pinnacle-3",
+              "nda_stellar_systems-6",
+              "nda_crestwood-1",
+              "nda_crestwood-2",
+              "nda_helix_dynamics-4",
+              "nda_pinnacle-4"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_pinnacle",
+      "failure_tags": [],
+      "query": "The biopharmaceutical co-development agreement between Pinnacle Corp. and Atlas Research: how should the parties treat trade secrets and confidential information?",
+      "query_id": "pinnacle-4",
+      "ragas": {
+        "answer_relevance": 0.07142857142857142,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.6666666666666666,
+          "5": 0.6,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_helix_dynamics",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_stellar_systems",
+        "nda_crestwood",
+        "nda_crestwood",
+        "nda_helix_dynamics",
+        "nda_pinnacle"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Zenith Enterprises\" and \"Quantum Works\" entered into to support a potential quantum research program. [citation:nda_zenith-0]",
+      "cited_chunk_ids": [
+        "nda_zenith-0"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "Mutual Non-Disclosure Agreement\n\nThis Mutual Non-Disclosure Agreement (the \"Agreement\") is between \"Zenith Enterprises\" and \"Quantum Works\" entered into to support a potential quantum research program.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_zenith-0",
+              "nda_crestwood-7",
+              "nda_pinnacle-7",
+              "nda_zenith-5",
+              "nda_zenith-2",
+              "nda_zenith-1",
+              "nda_orion_group-7",
+              "nda_stellar_systems-7",
+              "nda_pinnacle-4",
+              "nda_zenith-3"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.5,
+      "expected_document": "nda_zenith",
+      "failure_tags": [],
+      "query": "Regarding the quantum research program, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "zenith-1",
+      "ragas": {
+        "answer_relevance": 0.18181818181818182,
+        "context_relevance": 1.0,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.6,
+          "10": 0.5
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_zenith",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_stellar_systems",
+        "nda_pinnacle",
+        "nda_zenith"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "For this quantum research program engagement, confidentiality remains in effect for four years after the Effective Date. [citation:nda_zenith-7]",
+      "cited_chunk_ids": [
+        "nda_zenith-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 1,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "For this quantum research program engagement, confidentiality remains in effect for four years after the Effective Date.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_pinnacle-4",
+              "nda_zenith-7",
+              "nda_zenith-6",
+              "nda_orion_group-7",
+              "nda_zenith-3",
+              "nda_pinnacle-0",
+              "nda_zenith-2",
+              "nda_pinnacle-2",
+              "nda_pinnacle-7",
+              "nda_stellar_systems-7"
+            ],
+            "reason": "100% of the claim's meaning-bearing tokens are grounded in the retrieved evidence",
+            "status": "supported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 1.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_zenith",
+      "failure_tags": [],
+      "query": "For the quantum research program, what obligations do the parties have to protect confidential information?",
+      "query_id": "zenith-2",
+      "ragas": {
+        "answer_relevance": 0.375,
+        "context_relevance": 0.8,
+        "faithfulness": 1.0
+      },
+      "retrieval": {
+        "average_precision": 0.5,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.6666666666666666,
+          "5": 0.6,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.5
+      },
+      "retrieved_sources": [
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_zenith",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Confidential information is protected as stated in the cited provision. [citation:nda_zenith-4]",
+      "cited_chunk_ids": [
+        "nda_zenith-4"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 0,
+          "unsupported": 1
+        },
+        "details": [
+          {
+            "claim": "Confidential information is protected as stated in the cited provision.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_zenith-4",
+              "nda_pinnacle-4",
+              "nda_orion_group-6",
+              "nda_pinnacle-1",
+              "nda_pinnacle-2",
+              "nda_helix_dynamics-4",
+              "nda_orion_group-2"
+            ],
+            "reason": "the retrieved evidence does not contain the claim's content (token coverage 33% < 60%)",
+            "status": "unsupported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_zenith",
+      "failure_tags": [
+        {
+          "evidence": [
+            "no section/parent/heading/hierarchy_path on any chunk"
+          ],
+          "label": "Interpretability failure (no structural trace)",
+          "reason": "retrieved chunks carry no section/hierarchy metadata, so the answer cannot be traced back to the document structure",
+          "tag": "interpretability_failure"
+        },
+        {
+          "evidence": [
+            "claim-1 (unsupported): Confidential information is protected as stated in the cited provision."
+          ],
+          "label": "Hallucination (ungrounded claims)",
+          "reason": "1 of 1 claims are not grounded in the retrieved evidence",
+          "tag": "hallucination"
+        }
+      ],
+      "query": "Under the agreement for the quantum research program, what happens to Confidential Information upon termination?",
+      "query_id": "zenith-3",
+      "ragas": {
+        "answer_relevance": 0.2222222222222222,
+        "context_relevance": 1.0,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_zenith",
+        "nda_pinnacle",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_pinnacle",
+        "nda_helix_dynamics",
+        "nda_orion_group"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": true,
+      "answer": "Confidential information is protected as stated in the cited provision. [citation:nda_zenith-7]",
+      "cited_chunk_ids": [
+        "nda_zenith-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 0,
+          "unsupported": 1
+        },
+        "details": [
+          {
+            "claim": "Confidential information is protected as stated in the cited provision.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_zenith-4",
+              "nda_zenith-2",
+              "nda_helix_dynamics-1",
+              "nda_crestwood-1",
+              "nda_pinnacle-6",
+              "nda_helix_dynamics-6"
+            ],
+            "reason": "the retrieved evidence does not contain the claim's content (token coverage 33% < 60%)",
+            "status": "unsupported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.6,
+      "expected_document": "nda_zenith",
+      "failure_tags": [
+        {
+          "evidence": [
+            "claim-1 (unsupported): Confidential information is protected as stated in the cited provision."
+          ],
+          "label": "Hallucination (ungrounded claims)",
+          "reason": "1 of 1 claims are not grounded in the retrieved evidence",
+          "tag": "hallucination"
+        },
+        {
+          "evidence": [
+            "retrieved_sources=nda_zenith, nda_zenith, nda_zenith, nda_helix_dynamics, nda_crestwood, nda_pinnacle, nda_pinnacle, nda_stellar_systems, nda_helix_dynamics, nda_zenith",
+            "cited_chunk_ids=nda_zenith-7",
+            "rounds_used=3",
+            "stop_reason=max_extra_rounds_reached"
+          ],
+          "label": "Efficiency failure (too many retrieval rounds)",
+          "reason": "adaptive retrieval used 3 round(s), stopped on 'max_extra_rounds_reached'",
+          "tag": "efficiency_failure"
+        }
+      ],
+      "query": "The quantum research program agreement between Zenith Enterprises and Quantum Works: how should the parties treat trade secrets and confidential information?",
+      "query_id": "zenith-4",
+      "ragas": {
+        "answer_relevance": 0.15384615384615385,
+        "context_relevance": 1.0,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 0.6,
+          "10": 0.4
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_zenith",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_zenith"
+      ],
+      "rounds_used": 3,
+      "stop_reason": "max_extra_rounds_reached",
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "The governing obligations are stated in the cited source. [citation:nda_orion_group-7]",
+      "cited_chunk_ids": [
+        "nda_orion_group-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 0,
+          "unsupported": 1
+        },
+        "details": [
+          {
+            "claim": "The governing obligations are stated in the cited source.",
+            "claim_id": "claim-1",
+            "evidence": [],
+            "reason": "the retrieved evidence does not contain the claim's content (token coverage 0% < 60%)",
+            "status": "unsupported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_crestwood",
+      "failure_tags": [
+        {
+          "evidence": [
+            "retrieved_sources=nda_orion_group, nda_helix_dynamics, nda_helix_dynamics, nda_zenith, nda_zenith, nda_orion_group, nda_stellar_systems, nda_helix_dynamics, nda_crestwood, nda_crestwood",
+            "cited_chunk_ids=nda_orion_group-7",
+            "rounds_used=1"
+          ],
+          "label": "Context integration failure (not in context)",
+          "reason": "the expected document 'nda_crestwood' was retrieved but none of the cited chunks come from it (cited sources: ['nda_orion_group'])",
+          "tag": "context_integration_failure"
+        },
+        {
+          "evidence": [
+            "claim-1 (unsupported): The governing obligations are stated in the cited source."
+          ],
+          "label": "Hallucination (ungrounded claims)",
+          "reason": "1 of 1 claims are not grounded in the retrieved evidence",
+          "tag": "hallucination"
+        }
+      ],
+      "query": "Regarding the logistics distribution alliance, how long must confidential information remain confidential after the Effective Date?",
+      "query_id": "crestwood-1",
+      "ragas": {
+        "answer_relevance": 0.0,
+        "context_relevance": 0.8,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 0.1111111111111111,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.1111111111111111
+      },
+      "retrieved_sources": [
+        "nda_orion_group",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_zenith",
+        "nda_orion_group",
+        "nda_stellar_systems",
+        "nda_helix_dynamics",
+        "nda_crestwood",
+        "nda_crestwood"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "Your premise that the agreement has no term limit is not supported by the evidence. [citation:nda_crestwood-7]",
+      "cited_chunk_ids": [
+        "nda_crestwood-7"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 0,
+          "unsupported": 1
+        },
+        "details": [
+          {
+            "claim": "Your premise that the agreement has no term limit is not supported by the evidence.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_crestwood-7",
+              "nda_helix_dynamics-7",
+              "nda_stellar_systems-4",
+              "nda_crestwood-5",
+              "nda_zenith-4",
+              "nda_helix_dynamics-4",
+              "nda_stellar_systems-7",
+              "nda_zenith-5",
+              "nda_helix_dynamics-5",
+              "nda_orion_group-5"
+            ],
+            "reason": "the retrieved evidence does not contain the claim's content (token coverage 14% < 60%)",
+            "status": "unsupported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_crestwood",
+      "failure_tags": [
+        {
+          "evidence": [
+            "claim-1 (unsupported): Your premise that the agreement has no term limit is not supported by the evidence."
+          ],
+          "label": "Hallucination (ungrounded claims)",
+          "reason": "1 of 1 claims are not grounded in the retrieved evidence",
+          "tag": "hallucination"
+        },
+        {
+          "evidence": [
+            "the agreement has no term limit"
+          ],
+          "label": "Unsupported premise",
+          "reason": "the query was checked against the evidence and found to have an unsupported premise",
+          "tag": "unsupported_premise"
+        }
+      ],
+      "query": "For the logistics distribution alliance, what obligations do the parties have to protect confidential information?",
+      "query_id": "crestwood-2",
+      "ragas": {
+        "answer_relevance": 0.0,
+        "context_relevance": 0.4,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_crestwood",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_orion_group"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "unsupported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "I don't know.",
+      "cited_chunk_ids": [],
+      "claims": {
+        "counts": {
+          "contradicted": 0,
+          "supported": 0,
+          "unsupported": 1
+        },
+        "details": [
+          {
+            "claim": "I don't know.",
+            "claim_id": "claim-1",
+            "evidence": [],
+            "reason": "the retrieved evidence does not contain the claim's content (token coverage 0% < 60%)",
+            "status": "unsupported"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.8,
+      "expected_document": "nda_crestwood",
+      "failure_tags": [
+        {
+          "evidence": [
+            "retrieved_sources=nda_zenith, nda_crestwood, nda_pinnacle, nda_orion_group, nda_crestwood, nda_orion_group, nda_helix_dynamics, nda_helix_dynamics, nda_stellar_systems, nda_zenith",
+            "rounds_used=1"
+          ],
+          "label": "Generation failure (not extracted / incomplete)",
+          "reason": "the answer says it cannot answer despite the expected document being present in the retrieved context",
+          "tag": "generation_failure"
+        }
+      ],
+      "query": "Under the agreement for the logistics distribution alliance, what happens to Confidential Information upon termination?",
+      "query_id": "crestwood-3",
+      "ragas": {
+        "answer_relevance": 0.0,
+        "context_relevance": 1.0,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 0.5,
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 0.5
+      },
+      "retrieved_sources": [
+        "nda_zenith",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_orion_group",
+        "nda_crestwood",
+        "nda_orion_group",
+        "nda_helix_dynamics",
+        "nda_helix_dynamics",
+        "nda_stellar_systems",
+        "nda_zenith"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    },
+    {
+      "adaptive_triggered": null,
+      "answer": "The parties are legally required to disclose their trade secrets to competitors within ninety days. [citation:never-retrieved-chunk-999]",
+      "cited_chunk_ids": [
+        "never-retrieved-chunk-999"
+      ],
+      "claims": {
+        "counts": {
+          "contradicted": 1,
+          "supported": 0,
+          "unsupported": 0
+        },
+        "details": [
+          {
+            "claim": "The parties are legally required to disclose their trade secrets to competitors within ninety days.",
+            "claim_id": "claim-1",
+            "evidence": [
+              "nda_helix_dynamics-1",
+              "nda_pinnacle-1"
+            ],
+            "reason": "the claim asserts numeric detail(s) ['90'] that conflict with the numbers found in the evidence (['2', '6'])",
+            "status": "contradicted"
+          }
+        ],
+        "num_claims": 1,
+        "score": 0.0
+      },
+      "drm_fraction": 0.7,
+      "expected_document": "nda_crestwood",
+      "failure_tags": [
+        {
+          "evidence": [
+            "retrieved_sources=nda_crestwood, nda_helix_dynamics, nda_zenith, nda_crestwood, nda_pinnacle, nda_pinnacle, nda_crestwood, nda_zenith, nda_helix_dynamics, nda_stellar_systems",
+            "cited_chunk_ids=never-retrieved-chunk-999",
+            "rounds_used=1"
+          ],
+          "label": "Citation failure",
+          "reason": "citations reference chunks that were not retrieved: never-retrieved-chunk-999",
+          "tag": "citation_failure"
+        },
+        {
+          "evidence": [
+            "claim-1 (contradicted): The parties are legally required to disclose their trade secrets to competitors within ninety days."
+          ],
+          "label": "Hallucination (ungrounded claims)",
+          "reason": "1 of 1 claims are not grounded in the retrieved evidence",
+          "tag": "hallucination"
+        }
+      ],
+      "query": "The logistics distribution alliance agreement between Crestwood Holdings and Northwind Solutions: how should the parties treat trade secrets and confidential information?",
+      "query_id": "crestwood-4",
+      "ragas": {
+        "answer_relevance": 0.21428571428571427,
+        "context_relevance": 1.0,
+        "faithfulness": 0.0
+      },
+      "retrieval": {
+        "average_precision": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.3
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "reciprocal_rank": 1.0
+      },
+      "retrieved_sources": [
+        "nda_crestwood",
+        "nda_helix_dynamics",
+        "nda_zenith",
+        "nda_crestwood",
+        "nda_pinnacle",
+        "nda_pinnacle",
+        "nda_crestwood",
+        "nda_zenith",
+        "nda_helix_dynamics",
+        "nda_stellar_systems"
+      ],
+      "rounds_used": 1,
+      "stop_reason": null,
+      "verification_status": "supported"
+    }
+  ]
+}

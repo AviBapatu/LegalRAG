@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LegalRAG</title>
+  <style>
+    :root {
+      --bg: #f7f7f9;
+      --card: #ffffff;
+      --border: #d9d9e3;
+      --text: #1f2430;
+      --muted: #6a7180;
+      --accent: #2f6f4f;
+      --accent-dark: #245c40;
+      --error: #b00020;
+      --tag: #f0eaf7;
+      --tag-text: #5a3f8a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 24px;
+    }
+    header h1 { margin: 0; font-size: 20px; }
+    header p { margin: 4px 0 0; font-size: 13px; opacity: .9; }
+    main {
+      max-width: 920px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--accent-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 6px; }
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 10px;
+      font: inherit;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      resize: vertical;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--accent-dark); }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .answer { white-space: pre-wrap; }
+    .section-block > * + * { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px; }
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge.triggered { background: #fff0e6; color: #a32d00; }
+    .badge.not-triggered { background: #e8f6ee; color: var(--accent-dark); }
+    .badge.verdict { background: var(--tag); color: var(--tag-text); }
+    .chunk {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    .chunk .chunk-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .chunk .chunk-text {
+      font-size: 14px;
+      white-space: pre-wrap;
+      margin: 4px 0;
+    }
+    .scores { font-size: 12px; color: var(--muted); }
+    .hierarchy { font-size: 12px; color: var(--muted); font-family: monospace; }
+    .tag-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      background: var(--tag);
+      color: var(--tag-text);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .claim {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .claim .status { font-weight: 600; }
+    .claim .status.supported { color: var(--accent-dark); }
+    .claim .status.unsupported, .claim .status.contradicted { color: var(--error); }
+    .error-box {
+      background: #fdecec;
+      color: var(--error);
+      border: 1px solid #f5c2c2;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .hidden { display: none; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .metric .val { font-size: 20px; font-weight: 700; color: var(--accent-dark); }
+    .metric .lbl { font-size: 12px; color: var(--muted); }
+    details { margin-bottom: 8px; }
+    summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+    th { background: #fafafa; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LegalRAG</h1>
+    <p>Retrieval-augmented generation over legal documents</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Ask a question</h2>
+      <label for="query-input">Query</label>
+      <textarea id="query-input" placeholder="e.g. What is the term of the NDA between Acme and Global?"></textarea>
+      <button id="submit-btn" type="button">Submit</button>
+      <div id="loading" class="muted hidden" style="margin-top:10px">Running retrieval + generation…</div>
+      <div id="query-error" class="error-box hidden" style="margin-top:10px"></div>
+    </section>
+
+    <section class="card hidden" id="answer-card">
+      <h2>Answer</h2>
+      <div class="answer" id="answer-text"></div>
+      <div class="meta-row" style="margin-top:12px">
+        <span>Rounds: <strong id="rounds"></strong></span>
+        <span id="adaptive-badge"></span>
+        <span>Stop reason: <strong id="stop-reason"></strong></span>
+      </div>
+      <div id="rewritten" class="hidden section-block" style="margin-top:12px">
+        <h3 style="font-size:14px;margin:0 0 8px">Rewritten queries</h3>
+        <ul id="rewritten-list"></ul>
+      </div>
+    </section>
+
+    <section class="card hidden" id="premise-card">
+      <h2>Premise verification</h2>
+      <p id="premise-status"></p>
+      <ul id="premise-list"></ul>
+      <p class="muted" id="premise-explanation"></p>
+    </section>
+
+    <section class="card hidden" id="tags-card">
+      <h2>Failure-point tags</h2>
+      <div class="tag-list" id="tags-list"></div>
+    </section>
+
+    <section class="card hidden" id="claims-card">
+      <h2>Claim-level faithfulness</h2>
+      <p class="muted" id="claims-score"></p>
+      <div id="claims-detail"></div>
+    </section>
+
+    <section class="card hidden" id="chunks-card">
+      <h2>Retrieved chunks</h2>
+      <div id="chunks-list"></div>
+    </section>
+
+    <section class="card hidden" id="rounds-card">
+      <h2>Per-round detail</h2>
+      <div id="rounds-detail"></div>
+    </section>
+
+    <section class="card">
+      <h2>Latest evaluation (Milestone 7)</h2>
+      <button id="load-eval-btn" type="button">Load evaluation</button>
+      <div id="eval-loading" class="muted hidden" style="margin-top:10px">Loading…</div>
+      <div id="eval-error" class="error-box hidden" style="margin-top:10px"></div>
+      <div id="eval-content" class="hidden" style="margin-top:12px">
+        <div class="metric-grid" id="eval-metrics"></div>
+        <details style="margin-top:16px">
+          <summary>Failure-tag summary</summary>
+          <div id="eval-tags"></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+
+      function show(id) { $(id).classList.remove('hidden'); }
+      function hide(id) { $(id).classList.add('hidden'); }
+      function text(id, value) { $(id).textContent = value == null ? '' : String(value); }
+      function fmtPct(v) {
+        if (v == null) return '—';
+        return (Number(v) * 100).toFixed(1) + '%';
+      }
+
+      function renderChunk(r) {
+        var div = document.createElement('div');
+        div.className = 'chunk';
+
+        var head = document.createElement('div');
+        head.className = 'chunk-head';
+        var idSpan = document.createElement('strong');
+        idSpan.textContent = r.chunk_id;
+        var srcSpan = document.createElement('span');
+        srcSpan.textContent = 'source: ' + (r.source_name || 'unknown');
+        head.appendChild(idSpan);
+        head.appendChild(srcSpan);
+        div.appendChild(head);
+
+        if (r.text) {
+          var txt = document.createElement('div');
+          txt.className = 'chunk-text';
+          txt.textContent = r.text;
+          div.appendChild(txt);
+        }
+
+        if (r.section || r.parent || r.heading) {
+          var hier = document.createElement('div');
+          hier.className = 'hierarchy';
+          hier.textContent = (r.hierarchy_path && r.hierarchy_path.length
+            ? r.hierarchy_path.join(' / ') + ' — '
+            : '') + 'section: ' + (r.section || '—') +
+            ', parent: ' + (r.parent || '—') +
+            ', heading: ' + (r.heading || '—');
+          div.appendChild(hier);
+        }
+
+        var scores = document.createElement('div');
+        scores.className = 'scores';
+        scores.textContent = 'fused: ' + (r.fused_score != null ? r.fused_score.toFixed(4) : '—') +
+          ' | dense: ' + (r.dense_score != null ? r.dense_score.toFixed(4) : '—') +
+          ' | bm25: ' + (r.bm25_score != null ? r.bm25_score.toFixed(4) : '—') +
+          (r.structurally_boosted ? ' | boosted' : '');
+        div.appendChild(scores);
+
+        return div;
+      }
+
+      function submitQuery() {
+        var q = $('query-input').value;
+        hide('query-error');
+        if (!q || !q.trim()) {
+          show('query-error');
+          text('query-error', 'Query must be a non-empty string.');
+          return;
+        }
+
+        $('submit-btn').disabled = true;
+        show('loading');
+        hide('answer-card');
+        hide('premise-card');
+        hide('tags-card');
+        hide('claims-card');
+        hide('chunks-card');
+        hide('rounds-card');
+
+        fetch('/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: q })
+        })
+          .then(function (resp) {
+            return resp.json().then(function (data) {
+              return { ok: resp.ok, status: resp.status, data: data };
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) {
+              show('query-error');
+              text('query-error', res.data && res.data.detail ? res.data.detail : ('Error ' + res.status));
+              return;
+            }
+            renderResponse(res.data);
+          })
+          .catch(function (err) {
+            show('query-error');
+            text('query-error', 'Request failed: ' + err.message);
+          })
+          .finally(function () {
+            $('submit-btn').disabled = false;
+            hide('loading');
+          });
+      }
+
+      function renderResponse(data) {
+        // Answer card
+        show('answer-card');
+        text('answer-text', data.final_answer || '(no answer)');
+        text('rounds', data.rounds_used != null ? data.rounds_used : '—');
+        text('stop-reason', data.stop_reason || '—');
+
+        var badge = $('adaptive-badge');
+        badge.textContent = '';
+        var b = document.createElement('span');
+        b.className = 'badge ' + (data.adaptive_triggered ? 'triggered' : 'not-triggered');
+        b.textContent = data.adaptive_triggered ? 'adaptive triggered' : 'no adaptive rewrite';
+        badge.appendChild(b);
+
+        // Rewritten queries
+        if (data.rewritten_queries && data.rewritten_queries.length) {
+          show('rewritten');
+          $('rewritten-list').textContent = '';
+          data.rewritten_queries.forEach(function (rq) {
+            var li = document.createElement('li');
+            li.textContent = rq;
+            $('rewritten-list').appendChild(li);
+          });
+        } else {
+          hide('rewritten');
+        }
+
+        // Premise verification
+        var pv = data.premise_verification || {};
+        show('premise-card');
+        var status = pv.status || '—';
+        var ps = document.createElement('span');
+        ps.className = 'badge verdict';
+        ps.textContent = 'STATUS: ' + status;
+        $('premise-status').textContent = '';
+        $('premise-status').appendChild(ps);
+        text('premise-explanation', pv.explanation || '');
+        $('premise-list').textContent = '';
+        (pv.premises || []).forEach(function (p) {
+          var li = document.createElement('li');
+          li.textContent = p;
+          $('premise-list').appendChild(li);
+        });
+
+        // Failure tags
+        if (data.failure_tags && data.failure_tags.length) {
+          show('tags-card');
+          $('tags-list').textContent = '';
+          data.failure_tags.forEach(function (tag) {
+            var span = document.createElement('span');
+            span.className = 'tag';
+            span.textContent = (tag.label || tag.tag || 'tag') + (tag.reason ? ': ' + tag.reason : '');
+            $('tags-list').appendChild(span);
+          });
+        } else {
+          hide('tags-card');
+        }
+
+        // Claims
+        if (data.claim_level) {
+          show('claims-card');
+          text('claims-score', 'score: ' + fmtPct(data.claim_level.score) +
+            ' (' + data.claim_level.num_claims + ' claims)');
+          $('claims-detail').textContent = '';
+          (data.claim_level.details || []).forEach(function (cl) {
+            var div = document.createElement('div');
+            div.className = 'claim';
+            var st = document.createElement('span');
+            st.className = 'status ' + (cl.status || '');
+            st.textContent = (cl.status || '—').toUpperCase();
+            div.appendChild(st);
+            div.appendChild(document.createTextNode('  ' + cl.claim_id + ': ' + (cl.claim || '')));
+            if (cl.reason) {
+              var r = document.createElement('div');
+              r.className = 'muted';
+              r.textContent = cl.reason;
+              div.appendChild(r);
+            }
+            $('claims-detail').appendChild(div);
+          });
+        } else {
+          hide('claims-card');
+        }
+
+        // Chunks
+        show('chunks-card');
+        $('chunks-list').textContent = '';
+        (data.final_retrieval_results || []).forEach(function (r) {
+          $('chunks-list').appendChild(renderChunk(r));
+        });
+
+        // Per-round detail
+        if (data.rounds && data.rounds.length) {
+          show('rounds-card');
+          $('rounds-detail').textContent = '';
+          data.rounds.forEach(function (round) {
+            var det = document.createElement('details');
+            var summary = document.createElement('summary');
+            summary.textContent = 'Round ' + round.round_index +
+              (round.is_initial ? ' (initial)' : '') +
+              ' — decision: ' + (round.decision ? round.decision.reason : '—');
+            det.appendChild(summary);
+            var wrap = document.createElement('div');
+            wrap.style.marginTop = '8px';
+            if (round.query) {
+              var q = document.createElement('div');
+              q.className = 'muted';
+              q.textContent = 'query: ' + round.query;
+              wrap.appendChild(q);
+            }
+            (round.retrieval_results || []).forEach(function (r) {
+              wrap.appendChild(renderChunk(r));
+            });
+            det.appendChild(wrap);
+            $('rounds-detail').appendChild(det);
+          });
+        } else {
+          hide('rounds-card');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function loadEval() {
+        hide('eval-error');
+        show('eval-loading');
+        $('load-eval-btn').disabled = true;
+
+        fetch('/eval')
+          .then(function (resp) {
+            return resp.json().then(function (data) {
+              return { ok: resp.ok, status: resp.status, data: data };
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) {
+              show('eval-error');
+              text('eval-error', res.data && res.data.detail ? res.data.detail : ('Error ' + res.status));
+              return;
+            }
+            renderEval(res.data);
+          })
+          .catch(function (err) {
+            show('eval-error');
+            text('eval-error', 'Request failed: ' + err.message);
+          })
+          .finally(function () {
+            $('load-eval-btn').disabled = false;
+            hide('eval-loading');
+          });
+      }
+
+      function renderEval(data) {
+        var agg = data.aggregate || {};
+        hide('eval-error');
+        show('eval-content');
+        $('eval-metrics').textContent = '';
+
+        var metrics = [
+          ['Precision@1', fmtPct(agg.precision_at_1)],
+          ['Precision@3', fmtPct(agg.precision_at_3)],
+          ['Precision@5', fmtPct(agg.precision_at_5)],
+          ['Precision@10', fmtPct(agg.precision_at_10)],
+          ['Recall@1', fmtPct(agg.recall_at_1)],
+          ['Recall@3', fmtPct(agg.recall_at_3)],
+          ['Recall@5', fmtPct(agg.recall_at_5)],
+          ['Recall@10', fmtPct(agg.recall_at_10)],
+          ['MRR', fmtPct(agg.mrr)],
+          ['MAP', fmtPct(agg.map)],
+          ['DRM fraction', fmtPct(agg.drm_fraction)],
+          ['Faithfulness', fmtPct(agg.faithfulness)],
+          ['Answer relevance', fmtPct(agg.answer_relevance)],
+          ['Context relevance', fmtPct(agg.context_relevance)],
+          ['Claim faithfulness', fmtPct(agg.claim_level_faithfulness)],
+          ['Queries', agg.num_queries != null ? agg.num_queries : '—']
+        ];
+
+        metrics.forEach(function (m) {
+          var div = document.createElement('div');
+          div.className = 'metric';
+          var v = document.createElement('div');
+          v.className = 'val';
+          v.textContent = m[1];
+          var l = document.createElement('div');
+          l.className = 'lbl';
+          l.textContent = m[0];
+          div.appendChild(v);
+          div.appendChild(l);
+          $('eval-metrics').appendChild(div);
+        });
+
+        // Failure tags
+        var tags = (agg.failure_tags || {}).counts || {};
+        $('eval-tags').textContent = '';
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+        var hr = document.createElement('tr');
+        ['Failure point', 'Count'].forEach(function (h) {
+          var th = document.createElement('th');
+          th.textContent = h;
+          hr.appendChild(th);
+        });
+        thead.appendChild(hr);
+        table.appendChild(thead);
+        var tbody = document.createElement('tbody');
+        Object.keys(tags).forEach(function (k) {
+          var tr = document.createElement('tr');
+          var td1 = document.createElement('td');
+          td1.textContent = k;
+          var td2 = document.createElement('td');
+          td2.textContent = tags[k];
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        $('eval-tags').appendChild(table);
+      }
+
+      $('submit-btn').addEventListener('click', submitQuery);
+      $('query-input').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) submitQuery();
+      });
+      $('load-eval-btn').addEventListener('click', loadEval);
+    })();
+  </script>
+</body>
+</html>

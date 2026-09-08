@@ -1,0 +1,3569 @@
+{
+  "comparison": [
+    {
+      "delta": 0.08333333333333326,
+      "label": "Top-1 accuracy",
+      "metric": "top1_accuracy",
+      "sac_off": 0.8333333333333334,
+      "sac_on": 0.9166666666666666
+    },
+    {
+      "delta": -0.04166666666666663,
+      "label": "Top-3 accuracy",
+      "metric": "top3_accuracy",
+      "sac_off": 1.0,
+      "sac_on": 0.9583333333333334
+    },
+    {
+      "delta": 0.08333333333333326,
+      "label": "Document accuracy@1",
+      "metric": "doc_accuracy.1",
+      "sac_off": 0.8333333333333334,
+      "sac_on": 0.9166666666666666
+    },
+    {
+      "delta": -0.04166666666666663,
+      "label": "Document accuracy@3",
+      "metric": "doc_accuracy.3",
+      "sac_off": 1.0,
+      "sac_on": 0.9583333333333334
+    },
+    {
+      "delta": 0.0,
+      "label": "Document accuracy@5",
+      "metric": "doc_accuracy.5",
+      "sac_off": 1.0,
+      "sac_on": 1.0
+    },
+    {
+      "delta": 0.0,
+      "label": "Document accuracy@10",
+      "metric": "doc_accuracy.10",
+      "sac_off": 1.0,
+      "sac_on": 1.0
+    },
+    {
+      "delta": -29,
+      "label": "Retrieval mismatch count (top-k)",
+      "metric": "retrieval_mismatch_count",
+      "sac_off": 152,
+      "sac_on": 123
+    },
+    {
+      "delta": -0.12083333333333335,
+      "label": "DRM fraction (wrong-document chunks in top-k)",
+      "metric": "drm_fraction",
+      "sac_off": 0.6333333333333333,
+      "sac_on": 0.5125
+    }
+  ],
+  "envelope": {
+    "corpus": [
+      {
+        "bytes": 1024,
+        "file": "nda_crestwood.txt",
+        "sha256": "df191b471c9bf60fb89684653f73c27aecc53e521deebc2507acdb8636e8a1e7"
+      },
+      {
+        "bytes": 995,
+        "file": "nda_helix_dynamics.txt",
+        "sha256": "801180e04a4eb3fb32f268a4b80cefe13a49ea637a5511663d7cd8a2d0b5f4cc"
+      },
+      {
+        "bytes": 993,
+        "file": "nda_orion_group.txt",
+        "sha256": "12d3ef89be37373b31de275c7978c8833a63b1051378668f9cae82d31acbdb5a"
+      },
+      {
+        "bytes": 1018,
+        "file": "nda_pinnacle.txt",
+        "sha256": "89c7ffdf94e0a24c1a209d760d4b828648e8db6b786a8398e2e27f70f463117b"
+      },
+      {
+        "bytes": 1006,
+        "file": "nda_stellar_systems.txt",
+        "sha256": "0deb49b8e0786de7af2558c3def78eb78886673375a56a628c7e824757e44cec"
+      },
+      {
+        "bytes": 998,
+        "file": "nda_zenith.txt",
+        "sha256": "4bd54b07510dfad9b525ea981577898f465df1baa502e2a1963f4afccb54e755"
+      }
+    ],
+    "embedding_model": "BAAI/bge-large-en-v1.5",
+    "env": {
+      "config": {
+        "chunking_strategy": "pattern",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "mmr_lambda": 0.7,
+        "retrieval_top_k": 10,
+        "rrf_k": 60,
+        "sac_summary_max_chars": 150,
+        "structural_boost_strength": 0.1,
+        "use_mmr": true,
+        "use_structural_boost": true
+      },
+      "eval_version": 1,
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+      "python": "3.14.4"
+    },
+    "generated_at": "2026-09-06T08:58:41.292028+00:00",
+    "index_root": "/home/sivamani/projects/legalrag/data/eval/index",
+    "num_queries": 24,
+    "processed_dir": "/home/sivamani/projects/legalrag/data/eval/processed",
+    "queries": [
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-1"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-2"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-3"
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query_id": "stellar-4"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-1"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-2"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-3"
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query_id": "helix-4"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-1"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-2"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-3"
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query_id": "orion-4"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-1"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-2"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-3"
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query_id": "pinnacle-4"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-1"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-2"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-3"
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query_id": "zenith-4"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-1"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-2"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-3"
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query_id": "crestwood-4"
+      }
+    ],
+    "raw_dir": "/home/sivamani/projects/legalrag/data/eval/raw",
+    "retrieval_depth": 10
+  },
+  "sac_off": {
+    "metrics": {
+      "doc_accuracy": {
+        "1": 0.8333333333333334,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "doc_accuracy_top_k": 1.0,
+      "drm_fraction": 0.6333333333333333,
+      "num_queries": 24,
+      "retrieval_mismatch_count": 152,
+      "top1_accuracy": 0.8333333333333334,
+      "top3_accuracy": 1.0,
+      "top_k": 10,
+      "total_chunks_checked": 240
+    },
+    "per_query": [
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "Regarding the manufacturing joint venture, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "stellar-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "For the manufacturing joint venture, what obligations do the parties have to protect confidential information?",
+        "query_id": "stellar-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "Under the agreement for the manufacturing joint venture, what happens to Confidential Information upon termination?",
+        "query_id": "stellar-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-5",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "The manufacturing joint venture agreement between Stellar Systems Inc. and Nova Labs: how should the parties treat trade secrets and confidential information?",
+        "query_id": "stellar-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "Regarding the software licensing deal, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "helix-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "For the software licensing deal, what obligations do the parties have to protect confidential information?",
+        "query_id": "helix-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_orion_group"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "Under the agreement for the software licensing deal, what happens to Confidential Information upon termination?",
+        "query_id": "helix-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-5",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "The software licensing deal agreement between Helix Dynamics Ltd. and Orbit Partners: how should the parties treat trade secrets and confidential information?",
+        "query_id": "helix-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_zenith"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "Regarding the hospitality acquisition, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "orion-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "For the hospitality acquisition, what obligations do the parties have to protect confidential information?",
+        "query_id": "orion-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "Under the agreement for the hospitality acquisition, what happens to Confidential Information upon termination?",
+        "query_id": "orion-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-5",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "The hospitality acquisition agreement between Orion Group LLC and Vertex Capital: how should the parties treat trade secrets and confidential information?",
+        "query_id": "orion-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "Regarding the biopharmaceutical co-development, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "pinnacle-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "For the biopharmaceutical co-development, what obligations do the parties have to protect confidential information?",
+        "query_id": "pinnacle-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "Under the agreement for the biopharmaceutical co-development, what happens to Confidential Information upon termination?",
+        "query_id": "pinnacle-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "The biopharmaceutical co-development agreement between Pinnacle Corp. and Atlas Research: how should the parties treat trade secrets and confidential information?",
+        "query_id": "pinnacle-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "Regarding the quantum research program, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "zenith-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "For the quantum research program, what obligations do the parties have to protect confidential information?",
+        "query_id": "zenith-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "Under the agreement for the quantum research program, what happens to Confidential Information upon termination?",
+        "query_id": "zenith-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-5",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_crestwood",
+          "nda_helix_dynamics"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "The quantum research program agreement between Zenith Enterprises and Quantum Works: how should the parties treat trade secrets and confidential information?",
+        "query_id": "zenith-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "Regarding the logistics distribution alliance, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "crestwood-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "For the logistics distribution alliance, what obligations do the parties have to protect confidential information?",
+        "query_id": "crestwood-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "Under the agreement for the logistics distribution alliance, what happens to Confidential Information upon termination?",
+        "query_id": "crestwood-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "The logistics distribution alliance agreement between Crestwood Holdings and Northwind Solutions: how should the parties treat trade secrets and confidential information?",
+        "query_id": "crestwood-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      }
+    ],
+    "use_sac": false
+  },
+  "sac_on": {
+    "metrics": {
+      "doc_accuracy": {
+        "1": 0.9166666666666666,
+        "3": 0.9583333333333334,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "doc_accuracy_top_k": 1.0,
+      "drm_fraction": 0.5125,
+      "num_queries": 24,
+      "retrieval_mismatch_count": 123,
+      "top1_accuracy": 0.9166666666666666,
+      "top3_accuracy": 0.9583333333333334,
+      "top_k": 10,
+      "total_chunks_checked": 240
+    },
+    "per_query": [
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "Regarding the manufacturing joint venture, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "stellar-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_zenith"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "For the manufacturing joint venture, what obligations do the parties have to protect confidential information?",
+        "query_id": "stellar-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_zenith"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "Under the agreement for the manufacturing joint venture, what happens to Confidential Information upon termination?",
+        "query_id": "stellar-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-5",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_crestwood",
+          "nda_stellar_systems",
+          "nda_helix_dynamics",
+          "nda_orion_group",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_stellar_systems",
+        "query": "The manufacturing joint venture agreement between Stellar Systems Inc. and Nova Labs: how should the parties treat trade secrets and confidential information?",
+        "query_id": "stellar-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-0",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-5",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-2",
+            "mismatch": false,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "Regarding the software licensing deal, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "helix-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "For the software licensing deal, what obligations do the parties have to protect confidential information?",
+        "query_id": "helix-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_zenith"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "Under the agreement for the software licensing deal, what happens to Confidential Information upon termination?",
+        "query_id": "helix-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_helix_dynamics",
+        "query": "The software licensing deal agreement between Helix Dynamics Ltd. and Orbit Partners: how should the parties treat trade secrets and confidential information?",
+        "query_id": "helix-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_helix_dynamics-4",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-0",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-5",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-3",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-2",
+            "mismatch": false,
+            "source_name": "nda_helix_dynamics"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_helix_dynamics"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "Regarding the hospitality acquisition, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "orion-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_crestwood",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "For the hospitality acquisition, what obligations do the parties have to protect confidential information?",
+        "query_id": "orion-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-3",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "Under the agreement for the hospitality acquisition, what happens to Confidential Information upon termination?",
+        "query_id": "orion-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_orion_group"
+        ]
+      },
+      {
+        "expected_document": "nda_orion_group",
+        "query": "The hospitality acquisition agreement between Orion Group LLC and Vertex Capital: how should the parties treat trade secrets and confidential information?",
+        "query_id": "orion-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-0",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-3",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_orion_group-5",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-2",
+            "mismatch": false,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "Regarding the biopharmaceutical co-development, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "pinnacle-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_pinnacle"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "For the biopharmaceutical co-development, what obligations do the parties have to protect confidential information?",
+        "query_id": "pinnacle-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-4",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-3",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_pinnacle",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_stellar_systems",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "Under the agreement for the biopharmaceutical co-development, what happens to Confidential Information upon termination?",
+        "query_id": "pinnacle-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_pinnacle",
+        "query": "The biopharmaceutical co-development agreement between Pinnacle Corp. and Atlas Research: how should the parties treat trade secrets and confidential information?",
+        "query_id": "pinnacle-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_pinnacle-4",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-0",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-3",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_pinnacle-5",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_pinnacle-2",
+            "mismatch": false,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_pinnacle",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "Regarding the quantum research program, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "zenith-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-5",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "For the quantum research program, what obligations do the parties have to protect confidential information?",
+        "query_id": "zenith-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-5",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-2",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "Under the agreement for the quantum research program, what happens to Confidential Information upon termination?",
+        "query_id": "zenith-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": true,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_zenith-5",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_stellar_systems",
+          "nda_zenith",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_zenith",
+          "nda_orion_group"
+        ]
+      },
+      {
+        "expected_document": "nda_zenith",
+        "query": "The quantum research program agreement between Zenith Enterprises and Quantum Works: how should the parties treat trade secrets and confidential information?",
+        "query_id": "zenith-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_zenith-4",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-1",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-0",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_zenith-5",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-2",
+            "mismatch": false,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-1",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_stellar_systems"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "Regarding the logistics distribution alliance, how long must confidential information remain confidential after the Effective Date?",
+        "query_id": "crestwood-1",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-7",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_orion_group-7",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-7",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_helix_dynamics",
+          "nda_orion_group",
+          "nda_zenith",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_orion_group",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "For the logistics distribution alliance, what obligations do the parties have to protect confidential information?",
+        "query_id": "crestwood-2",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-7",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_zenith-7",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-1",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_zenith-3",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_crestwood",
+          "nda_zenith",
+          "nda_orion_group",
+          "nda_helix_dynamics",
+          "nda_pinnacle",
+          "nda_zenith",
+          "nda_crestwood"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "Under the agreement for the logistics distribution alliance, what happens to Confidential Information upon termination?",
+        "query_id": "crestwood-3",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_zenith-6",
+            "mismatch": true,
+            "source_name": "nda_zenith"
+          },
+          {
+            "chunk_id": "nda_pinnacle-6",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-6",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          },
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_helix_dynamics-6",
+            "mismatch": true,
+            "source_name": "nda_helix_dynamics"
+          },
+          {
+            "chunk_id": "nda_stellar_systems-6",
+            "mismatch": true,
+            "source_name": "nda_stellar_systems"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-4",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_zenith",
+          "nda_pinnacle",
+          "nda_crestwood",
+          "nda_orion_group",
+          "nda_crestwood",
+          "nda_helix_dynamics",
+          "nda_stellar_systems",
+          "nda_crestwood",
+          "nda_orion_group"
+        ]
+      },
+      {
+        "expected_document": "nda_crestwood",
+        "query": "The logistics distribution alliance agreement between Crestwood Holdings and Northwind Solutions: how should the parties treat trade secrets and confidential information?",
+        "query_id": "crestwood-4",
+        "retrieved_chunks": [
+          {
+            "chunk_id": "nda_crestwood-4",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-7",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-1",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-0",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-6",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-3",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_pinnacle-1",
+            "mismatch": true,
+            "source_name": "nda_pinnacle"
+          },
+          {
+            "chunk_id": "nda_crestwood-5",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_crestwood-2",
+            "mismatch": false,
+            "source_name": "nda_crestwood"
+          },
+          {
+            "chunk_id": "nda_orion_group-1",
+            "mismatch": true,
+            "source_name": "nda_orion_group"
+          }
+        ],
+        "retrieved_sources": [
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_pinnacle",
+          "nda_crestwood",
+          "nda_crestwood",
+          "nda_orion_group"
+        ]
+      }
+    ],
+    "use_sac": true
+  }
+}

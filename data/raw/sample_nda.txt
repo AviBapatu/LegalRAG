@@ -1,0 +1,35 @@
+Mutual Non-Disclosure Agreement
+
+This Mutual Non-Disclosure Agreement (the "Agreement") is entered into by and
+between Acme Corporation ("Acme") and Global Enterprises Ltd. ("Global") to
+protect confidential information disclosed during discussions of a potential
+business relationship.
+
+1. Confidential Information
+
+1.1 For the purposes of this Agreement, "Confidential Information" shall
+include any technical data, trade secrets, know-how, research, product plans,
+products, services, customers, markets, software, developments, inventions,
+processes, formulas, technology, designs, drawings, engineering, hardware
+configuration information, marketing, finances.
+
+1.2 Confidential Information may be disclosed in any form or manner, including
+written, oral, or visual, and whether or not marked as confidential.
+
+2. Obligations of Confidentiality
+
+2.1 Each party shall hold the other party's Confidential Information in
+confidence and shall protect it using the same degree of care used to protect
+its own confidential information, but in no event less than reasonable care.
+
+2.2 Each party shall use the other party's Confidential Information solely for
+the purpose of evaluating the potential business relationship described in the
+Agreement.
+
+3. Term and Termination
+
+3.1 This Agreement shall commence on the Effective Date and shall continue in
+full force and effect for a period of two (2) years unless earlier terminated.
+
+3.2 Upon termination, each party shall, upon written request, return all
+Confidential Information to the disclosing party or certify its destruction.

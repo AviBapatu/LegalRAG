@@ -1,0 +1,125 @@
+{
+  "description": "DRM evaluation queries for Milestone 4. Each query is scoped to one known source document (the ground-truth document id is the file stem). The corpus is deliberately composed of NDAs that share near-identical boilerplate so that, without Summary-Augmented Chunking (SAC), the retriever pulls boilerplate chunks from the wrong document.",
+  "queries": [
+    {
+      "query_id": "stellar-1",
+      "query": "Regarding the manufacturing joint venture, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_stellar_systems"
+    },
+    {
+      "query_id": "stellar-2",
+      "query": "For the manufacturing joint venture, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_stellar_systems"
+    },
+    {
+      "query_id": "stellar-3",
+      "query": "Under the agreement for the manufacturing joint venture, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_stellar_systems"
+    },
+    {
+      "query_id": "stellar-4",
+      "query": "The manufacturing joint venture agreement between Stellar Systems Inc. and Nova Labs: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_stellar_systems"
+    },
+    {
+      "query_id": "helix-1",
+      "query": "Regarding the software licensing deal, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_helix_dynamics"
+    },
+    {
+      "query_id": "helix-2",
+      "query": "For the software licensing deal, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_helix_dynamics"
+    },
+    {
+      "query_id": "helix-3",
+      "query": "Under the agreement for the software licensing deal, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_helix_dynamics"
+    },
+    {
+      "query_id": "helix-4",
+      "query": "The software licensing deal agreement between Helix Dynamics Ltd. and Orbit Partners: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_helix_dynamics"
+    },
+    {
+      "query_id": "orion-1",
+      "query": "Regarding the hospitality acquisition, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_orion_group"
+    },
+    {
+      "query_id": "orion-2",
+      "query": "For the hospitality acquisition, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_orion_group"
+    },
+    {
+      "query_id": "orion-3",
+      "query": "Under the agreement for the hospitality acquisition, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_orion_group"
+    },
+    {
+      "query_id": "orion-4",
+      "query": "The hospitality acquisition agreement between Orion Group LLC and Vertex Capital: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_orion_group"
+    },
+    {
+      "query_id": "pinnacle-1",
+      "query": "Regarding the biopharmaceutical co-development, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_pinnacle"
+    },
+    {
+      "query_id": "pinnacle-2",
+      "query": "For the biopharmaceutical co-development, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_pinnacle"
+    },
+    {
+      "query_id": "pinnacle-3",
+      "query": "Under the agreement for the biopharmaceutical co-development, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_pinnacle"
+    },
+    {
+      "query_id": "pinnacle-4",
+      "query": "The biopharmaceutical co-development agreement between Pinnacle Corp. and Atlas Research: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_pinnacle"
+    },
+    {
+      "query_id": "zenith-1",
+      "query": "Regarding the quantum research program, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_zenith"
+    },
+    {
+      "query_id": "zenith-2",
+      "query": "For the quantum research program, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_zenith"
+    },
+    {
+      "query_id": "zenith-3",
+      "query": "Under the agreement for the quantum research program, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_zenith"
+    },
+    {
+      "query_id": "zenith-4",
+      "query": "The quantum research program agreement between Zenith Enterprises and Quantum Works: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_zenith"
+    },
+    {
+      "query_id": "crestwood-1",
+      "query": "Regarding the logistics distribution alliance, how long must confidential information remain confidential after the Effective Date?",
+      "expected_document": "nda_crestwood"
+    },
+    {
+      "query_id": "crestwood-2",
+      "query": "For the logistics distribution alliance, what obligations do the parties have to protect confidential information?",
+      "expected_document": "nda_crestwood"
+    },
+    {
+      "query_id": "crestwood-3",
+      "query": "Under the agreement for the logistics distribution alliance, what happens to Confidential Information upon termination?",
+      "expected_document": "nda_crestwood"
+    },
+    {
+      "query_id": "crestwood-4",
+      "query": "The logistics distribution alliance agreement between Crestwood Holdings and Northwind Solutions: how should the parties treat trade secrets and confidential information?",
+      "expected_document": "nda_crestwood"
+    }
+  ]
+}

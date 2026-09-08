@@ -1,0 +1,117 @@
+# LegalRAG configuration
+# Single source of truth for all runtime settings. See AGENTS.md.
+
+ingest:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  chunks_file: chunks.jsonl
+  supported_extensions: [.pdf, .txt, .md]
+
+chunking:
+  # sentence | pattern
+  strategy: pattern
+  # Sentence chunking settings
+  sentence:
+    max_chars: 1000
+    min_chars: 50
+  # Pattern (structure-aware) chunking settings
+  pattern:
+    # Regex delimiters for section boundaries. Each entry matches a leading
+    # section *label* at the start of a line: {"pattern": <regex>, "level": <int>}
+    # where level is the hierarchy depth (1 = top-level section, 2 = subsection,
+    # 3 = sub-subsection). Higher level wins if multiple patterns match the same
+    # position (e.g. "3.2" matches both `\d+\.` and `\d+\.\d+`).
+    delimiters:
+      - pattern: '^[ \t]*(?:Section|Article)\s+\d+'   # "Section 3" / "Article 5"
+        level: 1
+      - pattern: '^[ \t]*\d+\.\d+\.\d+'               # nested 3.2.1
+        level: 3
+      - pattern: '^[ \t]*\d+\.\d+'                    # subsection 3.2
+        level: 2
+      - pattern: '^[ \t]*\d+\.'                       # top-level 3.
+        level: 1
+      - pattern: '^[ \t]*\(\w+\)'                     # letter (a)
+        level: 3
+  # Summary-Augmented Chunking
+  use_sac: true
+  # If true, use an LLM to generate summaries. If false, use the built-in
+  # heuristic summarizer (deterministic, no external dependency).
+  sac_use_llm: false
+  sac_summary_max_chars: 150
+  # Only used when sac_use_llm is true.
+  sac_llm_model: llama-3.3-70b-versatile
+
+retrieval:
+  # Dense embedding model. MUST stay a config value (AGENTS.md §2): the eval
+  # harness (Milestone 6) swaps this to compare embedding models, since
+  # retrieval accuracy sets the ceiling on downstream answer correctness.
+  embedding_model: BAAI/bge-large-en-v1.5
+  # Root directory where namespaced dense/BM25 indexes are persisted.
+  index_dir: data/index
+  # Number of chunks returned to the caller after fusion/rerank.
+  top_k: 10
+  # Reciprocal Rank Fusion constant (smoothing offset). Larger values flatten
+  # the rank contributions; 60 is the standard RRF choice (com.milestone 3).
+  rrf_k: 60
+  # Maximal Marginal Relevance lambda in [0, 1]: 1.0 = pure query relevance,
+  # 0.0 = pure diversity. Balanced default at 0.7.
+  mmr_lambda: 0.7
+  # Strength (weight) of the structural parent-section boost in [0, 1].
+  # Added to the fused score of a candidate whose parent section already
+  # appears among the top matches.
+  structural_boost_strength: 0.1
+  # Whether to apply the structural parent-section boost at all.
+  use_structural_boost: true
+  # Whether to apply MMR diversity reranking after fusion.
+  use_mmr: true
+
+generation:
+  # Milestone 5: answer generation via Groq. The API key is
+  # read from the GROQ_API_KEY environment variable at call time, never
+  # stored here or anywhere else in the repo. Keep `model`, `temperature`, and
+  # `max_tokens` configurable so they can be tuned without code changes.
+  provider: groq
+  model: llama-3.3-70b-versatile
+  temperature: 0.2
+  max_tokens: 1024
+
+adaptive:
+  # Milestone 6: adaptive retrieval loop (retrieval/adaptive.py).
+  # Master switch; set false to bypass the controller and use plain
+  # retrieve+generate at the call site.
+  enabled: true
+  # Nominal support threshold. The deterministic support decision in
+  # retrieval/adaptive.py does not compute a numeric score; this value is
+  # kept for configuration compatibility and recorded on results. The actual
+  # "enough evidence?" decision uses deterministic signals: unsupported or
+  # contradicted premise, "I don't know" answers, and absence of cited chunks
+  # all demand another round; cited, premise-supported answers stop.
+  support_threshold: 1.0
+  # Maximum number of EXTRA retrieval rounds allowed after the initial one.
+  # Bounds the loop (0 disables rewriting; 2 is the DRAG-BILQA-style default).
+  max_extra_rounds: 2
+
+evaluation:
+  # Milestone 7: full evaluation harness (eval/run_eval.py, eval/ablation.py).
+  # Depths at which precision@k / recall@k are reported. The largest value is
+  # also the default DRM depth.
+  k_values: [1, 3, 5, 10]
+  # Embedding models for the Milestone 6 embedding ablation (AGENTS.md §2 / §6).
+  # Each is a config value, never hardcoded; the harness reports
+  # precision/recall/MRR/DRM per model so retrieval can be compared across
+  # embedding models.
+  embedding_ablation_models:
+    - BAAI/bge-large-en-v1.5
+  # Master switches for the generation-facing parts of the harness.
+  enable_ragas_style: true
+  enable_claim_check: true
+  enable_failure_tags: true
+
+output:
+  # Newline used when writing JSONL chunk bodies; must be a single character.
+  newline: "\n"
+
+app:
+  # Milestone 8: API bind settings (used by the dev launcher, python -m app).
+  host: 127.0.0.1
+  port: 8000
