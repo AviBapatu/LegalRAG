@@ -39,13 +39,13 @@ chunking:
   sac_use_llm: false
   sac_summary_max_chars: 150
   # Only used when sac_use_llm is true.
-  sac_llm_model: llama-3.3-70b-versatile
+  sac_llm_model: openai/gpt-oss-20b
 
 retrieval:
   # Dense embedding model. MUST stay a config value (AGENTS.md §2): the eval
   # harness (Milestone 6) swaps this to compare embedding models, since
   # retrieval accuracy sets the ceiling on downstream answer correctness.
-  embedding_model: BAAI/bge-large-en-v1.5
+  embedding_model: all-MiniLM-L6-v2
   # Root directory where namespaced dense/BM25 indexes are persisted.
   index_dir: data/index
   # Number of chunks returned to the caller after fusion/rerank.
@@ -71,7 +71,7 @@ generation:
   # stored here or anywhere else in the repo. Keep `model`, `temperature`, and
   # `max_tokens` configurable so they can be tuned without code changes.
   provider: groq
-  model: llama-3.3-70b-versatile
+  model: openai/gpt-oss-20b
   temperature: 0.2
   max_tokens: 1024
 
@@ -101,7 +101,7 @@ evaluation:
   # precision/recall/MRR/DRM per model so retrieval can be compared across
   # embedding models.
   embedding_ablation_models:
-    - BAAI/bge-large-en-v1.5
+    - all-MiniLM-L6-v2
   # Master switches for the generation-facing parts of the harness.
   enable_ragas_style: true
   enable_claim_check: true
